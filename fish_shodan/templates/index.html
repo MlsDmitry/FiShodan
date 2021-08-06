@@ -31,7 +31,8 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/static/js/index.js"></script>
+    <script src="{{ url_for('static', filename='node_modules/')}}"></script>
+    <script type="module" src="/static/js/index.js"></script>
 </body>
 
 </html>
