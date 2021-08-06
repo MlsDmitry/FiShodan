@@ -1,4 +1,4 @@
-import regex
+import re
 from tldextract import extract
 import ssl
 import socket
@@ -35,7 +35,7 @@ def url_short(url):
 
 
 def having_at_symbol(url):
-    symbol = regex.findall(r'@', url)
+    symbol = re.findall(r'@', url)
     if(len(symbol) == 0):
         return -1
     else:
@@ -68,7 +68,7 @@ def sub_domain(url):
 def SSLfinal_State(url):
     try:
         # check wheather contains https
-        if(regex.search('^https', url)):
+        if(re.search('^https', url)):
             usehttps = 1
         else:
             usehttps = 0
@@ -334,3 +334,13 @@ def links_pointing(url):
 def statistical(url):
     # ongoing
     return 0
+
+def check_url(url):
+    check = [[url_having_ip(url),url_length(url),url_short(url),having_at_symbol(url),
+             doubleSlash(url),prefix_suffix(url),sub_domain(url),SSLfinal_State(url),
+              domain_registration(url),favicon(url),port(url),https_token(url),request_url(url),
+              url_of_anchor(url),Links_in_tags(url),sfh(url),email_submit(url),abnormal_url(url),
+              redirect(url),on_mouseover(url),rightClick(url),popup(url),iframe(url),
+              age_of_domain(url),dns(url),web_traffic(url),page_rank(url),google_index(url),
+              links_pointing(url),statistical(url)]]
+    return check

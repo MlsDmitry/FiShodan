@@ -9,6 +9,8 @@ import socket
 import requests
 from bs4 import BeautifulSoup, NavigableString
 
+from fish_shodan.utils import check_url
+
 NOT_TRUSTED_CA = ["Let's Encrypt Authority X3"]
 
 
@@ -17,6 +19,11 @@ celery.conf.broker_url = os.environ.get(
     "CELERY_BROKER_URL", "redis://localhost:6379")
 celery.conf.result_backend = os.environ.get(
     "CELERY_RESULT_BACKEND", "redis://localhost:6379")
+
+import joblib
+from os.path import join
+classifier = joblib.load(join('fish_shodan', 'final_models/rf_final.pkl'))
+print(classifier)
 
 class CTLog:
     def __init__(
@@ -33,9 +40,10 @@ class CTLog:
 def verify_domain(domain):
     response = {}
     d = Domain(domain)
-
-    if len(d.extract_tld().suffix.split('.')) >= 3:
-        return False
+    checks = check_url(domain)
+    print(classifier.predict(checks))
+    return True
+    
 
 
 class Domain:
@@ -97,3 +105,5 @@ class Domain:
             return False
 
         return True
+
+    

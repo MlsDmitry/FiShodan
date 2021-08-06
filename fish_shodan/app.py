@@ -1,5 +1,7 @@
+from os.path import join
 from flask import Flask
 from celery import Celery
+import joblib
 
 
 def create_application():
@@ -20,5 +22,5 @@ def create_application():
     
     from fish_shodan import routes
     app.register_blueprint(routes.main_page_bp)   
-     
+
     return app

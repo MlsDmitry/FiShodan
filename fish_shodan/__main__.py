@@ -1,6 +1,7 @@
 from .app import create_application
 
 app = create_application()
+
 @app.after_request
 def add_header(r):
     """
