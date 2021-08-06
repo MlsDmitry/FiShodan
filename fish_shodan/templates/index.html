@@ -13,8 +13,9 @@
 <body>
 <div class="container">
     <div class="main">
+        <button class="btn__help" onclick="openModal()">Help me!</button>
         <form method="POST" id="main_form">
-            <h2>FishShodan</h2>
+            <h2 style="text-align: center;">FiShodan</h2>
             <h3>Определение фишинговых сайтов</h3>
             <hr>
             Введите домен:
@@ -41,29 +42,31 @@
             </div>
         </div>
     </div>
-
+    <div class="help__div" id="modal-window">
+        <button onclick="closeM()">aa</button>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et optio alias ducimus aliquam consequatur recusandae rerum, sed ea cumque voluptatem dignissimos dolorem doloremque. Nesciunt distinctio nostrum consequatur molestias ea eum!
+    </div>
 </div>
-    <script src="/static/js/index.js"></script>
+
+    <script src="static/js/index.js"></script>
     <script>
-        function getData() {
-            var inpDomain = document.getElementById("input__domain");
-            var inpFile = document.getElementById("input__file");
-            if (inpDomain.value === "" && inpFile.value === "") {
-                console.log(inpDomain.value);
-                inpDomain.classList.add("warning"); 
-                console.log(inpFile.value);
-            } else {
-                inpDomain.classList.remove("warning");  
-                sendForm();
-            }
+
+        let ini= document.querySelector('#modal-window');
+        ini.classList.add("hideModal");
+        
+        function openModal(){
+        let modal= document.querySelector('#modal-window');
+        modal.classList.add("showModal");
+        
         }
 
-        function okey() {
-            console.log("aaaaaaa")
-        }
-      
+        function closeM(){
 
-    </script>      
+            let m= document.querySelector('#modal-window');
+        m.classList.remove("showModal");
+        
+        }
+      </script>
 </body>
 
 </html>
