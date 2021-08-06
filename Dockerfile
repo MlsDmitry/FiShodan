@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.6
 
 # layer caching for faster builds
 RUN pip install -r /requirements.txt
@@ -8,4 +8,4 @@ WORKDIR /fish_shodan
 
 ENV FLASK_ENV=development
 
-CMD python
+# CMD python 

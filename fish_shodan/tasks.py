@@ -1,6 +1,6 @@
 import os
 from celery import Celery
-from whois import query
+# from whois import query
 import dns.resolver
 import tldextract
 import OpenSSL
@@ -20,10 +20,11 @@ celery.conf.broker_url = os.environ.get(
 celery.conf.result_backend = os.environ.get(
     "CELERY_RESULT_BACKEND", "redis://localhost:6379")
 
-import joblib
-from os.path import join
-classifier = joblib.load(join('fish_shodan', 'final_models/rf_final.pkl'))
-print(classifier)
+# from sklearn.externals import joblib
+# from os.path import join
+# print(join(os.getcwd(), 'fish_shodan', 'final_models', 'rf_final.pkl'))
+# classifier = joblib.load(join('fish_shodan', 'final_models/rf_final.pkl'))
+# print(classifier)
 
 class CTLog:
     def __init__(
@@ -41,7 +42,7 @@ def verify_domain(domain):
     response = {}
     d = Domain(domain)
     checks = check_url(domain)
-    print(classifier.predict(checks))
+    # print(classifier.predict(checks))
     return True
     
 
@@ -53,8 +54,9 @@ class Domain:
         self.pages = {}
 
     def whois(self):
-        data = query(self.domain)
-        return data
+        pass
+        # data = query(self.domain)
+        # return data
 
     def lookup(self):
         dns.resolver.query(self.domain)

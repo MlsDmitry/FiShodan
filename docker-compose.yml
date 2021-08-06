@@ -8,8 +8,6 @@ services:
         environment:
             - REDIS_URL=redis
             - REDIS_PORT=6379
-            - MONGODB_HOST=mongodb
-            - MONGODB_PORT=27017
         ports:
             - '5000:5000'
         depends_on:

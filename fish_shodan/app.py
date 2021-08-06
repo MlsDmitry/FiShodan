@@ -1,7 +1,8 @@
 from os.path import join
 from flask import Flask
 from celery import Celery
-import joblib
+from sklearn.externals import joblib
+import sys
 
 
 def create_application():

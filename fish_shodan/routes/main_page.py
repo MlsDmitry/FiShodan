@@ -4,7 +4,7 @@ from flask import Blueprint, json, render_template, request, jsonify
 from flask.wrappers import Response
 from fish_shodan.app import celery
 
-from fish_shodan.tasks import verify_domain
+from fish_shodan.rpadml.index import verify_domain
 
 
 bp = Blueprint('main_page', __name__)
