@@ -40,9 +40,7 @@ async function sendForm() {
     // })
 
 }
-btn.addEventListener('click', function () {
-    sendForm()
-})
+
 
 function getStatus(taskID) {
     fetch(`/tasks/${taskID}`, {
