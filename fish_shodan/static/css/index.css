@@ -1,4 +1,27 @@
-#main-form {
-    /* padding-top: 40%; */
-    /* padding-left: 40%; */
+body {
+    margin: 0 0 ;
+}
+
+form {
+    border: 1px solid black;
+    padding: 10px 20px;
+
+    max-width: 350px;
+    margin: 0 auto;
+
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+input, button {
+    margin: 10px 0;
+    display: block;
+} 
+
+button {
+    border: 1px solid #767676;
+    border-radius: 2px;
 }
