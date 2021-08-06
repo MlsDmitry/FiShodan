@@ -32,17 +32,7 @@
                 <h3>Задачи:</h3>
             </div>
             <div class="list__tasks">
-                <div class="task">
-                    <div class="task__header">
-                        Домен: gooooogle.com
-                    </div>
-                    <div class="task__status">
-                        Статус: в ожидании
-                    </div>
-                    <div class="task__result">
-                        Результат: не готов
-                    </div>
-                </div>
+            
             </div>
         </div>
     </div>
@@ -81,27 +71,6 @@
             modal[0].classList.remove("visible");
         })
 
-        function insertData(results) {
-            var list = document.getElementsByClassName("list__tasks")[0];
-            var res = JSON.parse(results);
-            var htmlCode = "";
-
-            for (var i = 0; res.length; i++) {
-                htmlCode += `<div class="task">
-                    <div class="task__header">
-                        Домен: ${ res[i]["id"] }
-                    </div>
-                    <div class="task__status">
-                        Статус: ${ res[i]["status"] }
-                    </div>
-                    <div class="task__result">
-                        Результат: ${ res[i]["result"] }
-                    </div>
-                </div>`
-            }
-
-
-        }
     </script>
 </body>
 
