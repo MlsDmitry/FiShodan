@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, jsonify
 from flask.wrappers import Response
 from fish_shodan.app import celery
 
-from fish_shodan.tasks import whois
+from fish_shodan.tasks import verify_domain
 
 
 bp = Blueprint('main_page', __name__)
@@ -21,7 +21,7 @@ def root():
 @bp.route('/tasks', methods=['POST'])
 def add_task():
     data = request.json
-    task = whois.apply_async([1])
+    task = verify_domain.apply_async([1])
     print('created', data, task)
     return jsonify({'task_id': task.id}), 201
 

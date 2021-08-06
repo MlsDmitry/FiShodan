@@ -1,7 +1,6 @@
 import os
 from celery import Celery
 from whois import query
-import dnspython as dns
 import dns.resolver
 import tldextract
 import OpenSSL
