@@ -49,6 +49,9 @@ function getData() {
       console.log(inpFile.value);
   } else {
       inpDomain.classList.remove("warning");  
+      const fileList = inpFile.files[0];
+      console.log(fileList);  
+      
       sendForm();
   }
 }

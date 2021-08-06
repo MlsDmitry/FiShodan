@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 body {
     background-color: black;
     margin: 0 0 ;
     color: white;
+    font-family: 'Ubuntu', sans-serif;
 }
 .container {
     margin: 0 0;
     /* position: fixed; */
+    background-image: url("../comics.png");
     width: 99.2vw;
     min-height: 97.7vh;
-    background-image: url(../comics.png);
-    background-repeat: repeat;
-    background-size: 640px;
+    /* background-repeat: repeat;
+    background-size: 640px; */
     background-position-x: center;
 
+    display: flex;
 }
 
 .main {
@@ -52,13 +56,14 @@ input, button {
 button {
     border: 1px solid #767676;
     border-radius: 2px;
+    padding: 5px 10px;
 }   
 
 button:hover {
     cursor: pointer;
 }
 
-.btn__help {
+.btn__help {    
     position: absolute;
     top: 0;
     right: 0;
@@ -77,9 +82,50 @@ hr {
     background-color: #3D1312;
 }
 
-.help__div {
+.blur {
     display: none;
-    animation: slidein;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+
+    z-index: 2;
+}
+
+.help__div {
+    max-width: 700px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    margin:  0 auto;
+    transform: translateY(-50%);
+
+    border: 1px solid white;
+    box-shadow: 0 0 30px black;
+    background-color: green;
+    padding: 50px 75px;
+    z-index: 3;
+}
+
+.close__modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    padding-right: 10px;
+    color: white;
+}
+
+.visible {
+    display: block;
 }
 
 @keyframes slidein {
@@ -129,53 +175,3 @@ hr {
         top: 20%;
     }
 } */
-
-.main-modal{
-    width:350px;
-    height:300px;
-    background: #fff;
-    border-radius:5%;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    flex-direction: column;
-  }
-  
-  .hideModal{
-      z-index:-1;
-      opacity:0;
-    animation: hide .25s;
-    
-  transform: scale(0);
-  }@keyframes hide {
-    from{
-        z-index:2;
-  transform: scale(1);
-      opacity:1;
-    } to{
-        z-index:-1;
-  transform: scale(0);
-      opacity: 0;
-    }
-  }
-  .showModal{
-    opacity:1;
-      z-index:2;
-    animation: show .2s;
-    
-  transform: scale(1);
-  }
-  @keyframes show {
-    from{
-      
-  transform: scale(0);
-      opacity:0;
-        z-index:-1;
-    } to{
-      
-  transform: scale(1);
-      opacity: 1;
-        z-index:2;
-    }
-  }
-
