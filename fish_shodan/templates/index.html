@@ -5,34 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/tasks.css">
     <title>Document</title>
 </head>
 
 <body>
-    <form id="main_form" class="offset-md-4">
-        <div class="row w-25 justify-content-center">
-            <div class="col-sm form-group">
-                <input type="text" class="form-control" placeholder="ip">
+<div class="container">
+    <div class="main">
+        <form method="POST" id="main_form">
+            <h2>FishShodan</h2>
+            <h3>Определение фишинговых сайтов</h3>
+            <hr>
+            Введите домен:
+            <input type="text" placeholder="Введите домен..." id="input__domain">
+            или список доменов:
+            <input type="file" id="input__file">
+            <button type="button" id="btn__submit" onclick="getData()">Submit</button>    
+        </form>
+        <hr>
+        <div class="tasks">
+            <div class="tasks__header">
+                <h3>Задачи:</h3>
             </div>
-            <div class="col-sm form-group">
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <div class="task">
+                <div class="task__header">
+                    Домен: merbank.ru
+                </div>
+                <div class="task__status">
+                    Статус: в ожидании
+                </div>
+                <div class="task__result">
+                    Результат: не готов
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-            </div>
-        </div>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='node_modules/')}}"></script>
-    <script type="module" src="/static/js/index.js"></script>
+    </div>
+
+</div>
+    <script src="/static/js/index.js"></script>
+    <script>
+        function getData() {
+            var inpDomain = document.getElementById("input__domain");
+            var inpFile = document.getElementById("input__file");
+            if (inpDomain.value === "" && inpFile.value === "") {
+                console.log(inpDomain.value);
+                inpDomain.classList.add("warning"); 
+                console.log(inpFile.value);
+            } else {
+                inpDomain.classList.remove("warning");  
+                sendForm();
+            }
+        }
+
+        function okey() {
+            console.log("aaaaaaa")
+        }
+      
+
+    </script>      
 </body>
 
 </html>
