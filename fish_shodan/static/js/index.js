@@ -1,9 +1,13 @@
-const btn = document.getElementById('btn__submit')
+import axios from ''
+
+// const axios = require('axios').default;
+
+const btn = document.getElementById('submit-btn')
 const form = document.getElementById('main_form');
 
 async function sendForm() {
   const fd = new FormData(form)
-
+  
   axios.post('/tasks', {
       method: 'POST',
       data: {
@@ -16,7 +20,7 @@ async function sendForm() {
     .catch(function (error) {
       console.log(error);
     });
-
+  
   // let r = await fetch('/tasks', {
   //     method: 'POST',
   //     headers: {
@@ -36,20 +40,9 @@ async function sendForm() {
   // })
 
 }
-
-function getData() {
-  var inpDomain = document.getElementById("input__domain");
-  var inpFile = document.getElementById("input__file");
-  if (inpDomain.value === "" && inpFile.value === "") {
-      console.log(inpDomain.value);
-      inpDomain.classList.add("warning"); 
-      console.log(inpFile.value);
-  } else {
-      inpDomain.classList.remove("warning");  
-      sendForm();
-      window.location.replace("./tasks/index.html");
-  }
-}
+btn.addEventListener('click', function () {
+    sendForm()
+})
 
 function getStatus(taskID) {
     fetch(`/tasks/${taskID}`, {
@@ -58,7 +51,7 @@ function getStatus(taskID) {
         'Content-Type': 'application/json'
       },
     })
-    .then(response => o())
+    .then(response => response.json())
     .then(res => {
         console.log(res.data)
       setTimeout(function() {
