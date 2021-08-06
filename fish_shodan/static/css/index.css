@@ -155,9 +155,9 @@ hr {
 }
 
 
-/* @media (max-width: 1000px) {
-    body {
-        background-size: 500px;
+ @media (max-width: 1000px) {
+    .help__div {
+    padding: 10px 15px;
     }
 }
 
@@ -176,4 +176,4 @@ hr {
     form {
         top: 20%;
     }
-} */
+} 
