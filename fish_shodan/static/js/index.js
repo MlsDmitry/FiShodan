@@ -67,7 +67,7 @@ async function okey(resp) {
   setTimeout(function() {
 
     getStatus(task_ids);
-  }, 5000);
+  }, 2000);
 }
 
 function insertData(results) {
