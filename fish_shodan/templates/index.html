@@ -6,17 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/tasks.css">
     <title>Document</title>
 </head>
 
 <body>
-    <form action="">
-        <input type="text" placeholder="Введите домен...">
-        <input type="file">
-        <button type="submit">Submit</button>    
-    </form>
+<div class="container">
+    <div class="main">
+        <form method="POST" id="main_form">
+            <h2>FishShodan</h2>
+            <h3>Определение фишинговых сайтов</h3>
+            <hr>
+            Введите домен:
+            <input type="text" placeholder="Введите домен..." id="input__domain">
+            или список доменов:
+            <input type="file" id="input__file">
+            <button type="button" id="btn__submit" onclick="getData()">Submit</button>    
+        </form>
+        <hr>
+        <div class="tasks">
+            <div class="tasks__header">
+                <h3>Задачи:</h3>
+            </div>
+            <div class="task">
+                <div class="task__header">
+                    Домен: merbank.ru
+                </div>
+                <div class="task__status">
+                    Статус: в ожидании
+                </div>
+                <div class="task__result">
+                    Результат: не готов
+                </div>
+            </div>
+        </div>
+    </div>
 
+</div>
     <script src="/static/js/index.js"></script>
+    <script>
+        function getData() {
+            var inpDomain = document.getElementById("input__domain");
+            var inpFile = document.getElementById("input__file");
+            if (inpDomain.value === "" && inpFile.value === "") {
+                console.log(inpDomain.value);
+                inpDomain.classList.add("warning"); 
+                console.log(inpFile.value);
+            } else {
+                inpDomain.classList.remove("warning");  
+                sendForm();
+            }
+        }
+
+        function okey() {
+            console.log("aaaaaaa")
+        }
+      
+
+    </script>      
 </body>
 
 </html>
